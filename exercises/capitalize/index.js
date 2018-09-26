@@ -8,15 +8,27 @@
 //   capitalize('look, it is working!') --> 'Look, It Is Working!'
 
 function capitalize(str) {
+  str.toLowerCase();
   let strSplit = str.split('');
   let result = [];
-  for (let i = 0; i < strSplit.length; i++) {
-    if (strSplit[0]) result.push(strSplit[0].toUpperCase());
-    if (strSplit[i] === ' ') {
-      result.push(strSplit[i + 1].toUpperCase());
+
+  // uppercase first letter of sentence;
+  result.push(strSplit[0].toUpperCase());
+  strSplit.splice(0, 1);
+
+  strSplit.map((letter, i) => {
+    if(letter === ' ') {
+      let newLet = strSplit[i + 1];
+      console.log(newLet);
+      
+      result.push(letter);
+      result.push(newLet.toUpperCase());
+      strSplit.splice(strSplit[i], 1);
+    } else {
+      result.push(letter);
     }
-    result.push(strSplit[i]);
-  }
+  })
+
   return result.join('');
 }
 
