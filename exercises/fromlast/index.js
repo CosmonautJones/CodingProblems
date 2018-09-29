@@ -11,6 +11,14 @@
 //    list.insertLast('d');
 //    fromLast(list, 2).data // 'b'
 
-function fromLast(list, n) {}
+function fromLast(list, n) {
+  let node;
+  list.map((el, i) => {
+    if (i + 1 === n) {
+      node = el;
+    }
+  })
+  return node;
+}
 
 module.exports = fromLast;
